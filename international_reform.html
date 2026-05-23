@@ -1,0 +1,428 @@
+
+<!-- saved from url=(0050)international_reform.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <meta http-equiv="Content-Security-Policy" content="
+  default-src &#39;self&#39;;
+  script-src &#39;self&#39;		
+		&#39;unsafe-inline&#39;
+        https://data.illuminatingsoftware.com
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://code.jquery.com
+        https://stackpath.bootstrapcdn.com;
+  style-src &#39;self&#39;
+		&#39;unsafe-inline&#39;
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://stackpath.bootstrapcdn.com
+        https://data.illuminatingsoftware.com
+        https://cdnjs.cloudflare.com;
+  img-src &#39;self&#39; data:;
+  font-src &#39;self&#39;
+        https://fonts.googleapis.com
+		https://fonts.gstatic.com
+        https://cdn.orkboo.com
+        https://data.illuminatingsoftware.com;
+  frame-src &#39;self&#39;;
+  child-src &#39;none&#39;;
+  object-src &#39;none&#39;;
+  connect-src &#39;self&#39;
+        https://data.illuminatingsoftware.com
+		https://stackpath.bootstrapcdn.com;
+">
+    <script>
+
+        function isExternalIframe(iframe) {
+            let src = iframe.getAttribute('src') || '';
+
+            // Don't allow empty iframes, about:blank, data: URLs, javascript: URLs, etc.
+            if (!src || src.trim() === '' ||
+                src.startsWith('about:') ||
+                src.startsWith('data:') ||
+                src.startsWith('javascript:')) {
+                return true;
+            }
+
+            //return false if it is not a pdf. 
+            src = src.split('?')[0].split('#')[0];
+            let indexOfDot = src.lastIndexOf('.');
+            if (indexOfDot === -1) return true;
+            let ext = src.substring(indexOfDot);
+            if (ext.toLowerCase() !== '.pdf') return true;
+
+
+            try {
+                // Handles relative URLs, protocol-relative (//example.com), etc.
+                const url = new URL(src, window.location.href);
+                return url.host.toLowerCase() !== window.location.host.toLowerCase();
+            } catch (e) {
+                // Malformed URL or any other parsing issue → treat as violation
+                return true;
+            }
+        }
+
+        function createWarningElement() {
+            const warning = document.createElement('div');
+            warning.style.cssText = `
+            background: #d32f2f;
+            color: #ffffff;
+            padding: 25px 20px;
+            border: 5px solid #b71c1c;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        `;
+            warning.innerHTML = `
+            🚫 <strong>SECURITY VIOLATION</strong> 🚫<br>
+            Embedding content from an <u>unauthorized external domain</u> is strictly prohibited.<br>
+            <span style="font-size: 15px; opacity: 0.95;">This iframe has been removed.</span>
+        `;
+            return warning;
+        }
+
+        function blockExternalIframes() {
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (isExternalIframe(iframe)) {
+                    const warning = createWarningElement();
+                    if (iframe.parentNode) {
+                        iframe.parentNode.replaceChild(warning, iframe);
+                    }
+                }
+            });
+        }
+
+        // Main starter – call this once (usually at the bottom of your page or in window.onload)
+        function startExternalIframeBlocker() {
+            // Initial scan in case any iframes already exist
+            blockExternalIframes();
+
+            // Watch the entire DOM for any changes (new nodes or src attribute changes)
+            const observer = new MutationObserver((mutations) => {
+                let shouldScan = false;
+
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        shouldScan = true;
+                    }
+
+                    // Also catch if JavaScript dynamically changes an iframe's src
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                        const target = mutation.target;
+                        if (target && target.tagName === 'IFRAME') {
+                            if (isExternalIframe(target)) {
+                                const warning = createWarningElement();
+                                target.parentNode?.replaceChild(warning, target);
+                            }
+                        }
+                    }
+                });
+
+                if (shouldScan) {
+                    blockExternalIframes();
+                }
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['src']
+            });
+
+        }
+
+        // ====================== START THE PROTECTOR ======================
+        //startExternalIframeBlocker();
+    </script>
+    
+
+
+
+</head>
+<body id="c2551" data-new-gr-c-s-check-loaded="14.1287.0" data-gr-ext-installed="">
+    <div class="container it-is-set">
+        
+
+<title>international_reform</title>
+<link rel="stylesheet" href="./international_reform_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+</style>
+<!--***Split***-->
+
+
+<div id="iv7r"><h1 id="ioui">International Reform
+	</h1><div id="iykay"></div><div id="iwxa"><div id="iuwal">
+	  </div><div id="i2kk8">
+	  </div></div><div id="im4t39"><div class="nav-bar"><a href="index.html" class="tab">Home<div>
+    </div></a><a href="Background.html" class="tab">Background<div>
+    </div></a><a href="Thesis.html" class="tab">Thesis<div>
+    </div></a><a href="origin.html" class="tab">Origin<div>
+    </div></a><div class="dropdown"><a class="tab">Reaction ▼</a><div class="dropdown-content"><a href="Medical-Reaction.html">Medical Reaction</a><a href="Public-Outcry.html">Public Outcry</a></div></div><div class="dropdown"><a class="tab">Reform ▼</a><div class="dropdown-content"><a href="incentive.html">Incentive</a><a href="international_reform.html">International Reform</a></div></div><a href="Lasting-Legacy.html" class="tab">Lasting Legacy<div>
+    </div></a><a href="Process-Paper.html" class="tab">Documents<div>
+    </div></a></div></div><div id="igf4p"><div id="ipy0h"><div id="ihu46" class="evidence-block"><blockquote>
+    “The United States, however, is not itself an opium-producing country, and in order to make its laws fully effective, and stamp out the evil, there should be control of the amount of opium shipped to this country. To this end it will be necessary to secure international cooperation and the sympathy of opium-producing countries.”
+    <div><p class="citation">(Alvey A. Adee, The Acting Secretary of State to the diplomatic officers, 1909)
+      </p></div></blockquote></div><h1>
+  International Opium Commission - Shanghai, 1909
+</h1><div class="image-block"><img src="./international_reform_files/Screenshot_2026-01-01_at_3_42_45_PM.png" id="inue1"><div id="if464" class="image-text"><p class="image-citation">(International Opium Commission in Shanghai, 1909)</p></div></div><div class="block-pic"><div id="ife9g" class="left"><div class="evidence-block"><blockquote>
+        "I extend to the Commissioners to-day assembled my good wishes and conviction that their labours will be of the greatest importance toward the general suppression of the opium evil throughout the world."
+        <div><p class="citation">(Report of the International Opium Commission, 1909)
+          </p></div></blockquote></div><p class="analysis">Delegates from thirteen countries gathered a global consensus on the opium evil before drafting official regulations.</p><div class="evidence-block"><blockquote id="ien8k">
+        "On the whole...the main object of this Conference will be to consider the question of putting a stop to the consumption of opium."
+        <div><p class="citation">(Report of the International Opium Commission, 1909)
+          </p></div></blockquote></div></div><div id="ia6q5" class="image-block"><img src="./international_reform_files/shanghai_resolutions.png" id="ibiwi"><div id="i7wkt" class="image-text"><p class="image-citation">(Report of the International Opium Commission, 1909)</p></div></div></div><p class="analysis">The Shanghai Commission laid the precedent for future international meetings that aimed for creating drug-control reforms. The establishment of this worldwide agreement secured global collaboration in abolishing the opium evil. ​</p><div class="evidence-block"><blockquote>
+    "Its conclusions that the opium vice should cease and that the illicit morphine traffic must be discontinued were unanimous. But these conclusions were on their face only moral in effect. Nevertheless they cleared all doubt as to future action."
+    <div><p class="citation">(Hamilton Wright, The International Opium Conference, 1912)
+      </p></div></blockquote></div><p class="analysis">The commission reframed drug control as a global ethical issue, not national sovereignty, making opium consumption internationally indefensible.</p><h1>First International Opium Conference - Hague, 1912
+</h1><div class="image-block"><img src="./international_reform_files/Screenshot_2026-01-01_at_4_09_48_PM.png" id="il4ds"><div id="ifrjk" class="image-text"><p class="image-citation">(De Opiumconferentie, 1914)
+    </p></div></div><p class="analysis">The prior commission established opium as evil, but failed to produce international regulations on opium:</p><div class="evidence-block"><blockquote>
+    "Greatly impressed by the gravity of the opium problem...as determined by the Shanghai Commission, the United States proposed an international conference to be held at the Hague, and that delegates thereto should have full powers to conventionalize the resolutions adopted at Shanghai and their necessary consequences."
+    <div><p class="citation">(Hamilton Wright, The International Opium Conference, 1912)
+      </p></div></blockquote></div><h3 id="iyfne">Hague Convention</h3><div class="block-pic"><div id="i5aal" class="left"><p id="iomrj" class="analysis">Control of Production
+    </p><div class="evidence-block"><blockquote id="i4fvg">
+        "The Contracting Powers shall enact effective laws or regulations for the control of the production and distribution of raw opium." (article 1)
+        <div><p class="citation">(League of Nations, International Opium Convention, 1912)</p></div></blockquote></div><p id="ihdv4" class="analysis">International Trade Regulations
+    </p><div class="evidence-block"><blockquote>
+        "(a) To prevent the export of raw opium to countries which shall have prohibited its entry, and (b) To control the export of raw opium to countries which restrict its import." (article 3)
+        <div><p class="citation">(League of Nations, International Opium Convention, 1912)</p></div></blockquote></div></div><div id="in8ipf" class="image-block"><img src="./international_reform_files/hague_convention_newsletter.jpeg" id="i0ayjg"><div id="ikv5og" class="image-text"><p class="image-citation">(The Buffalo Times, Anti-Opium Protocol Signed at The Hague, 1915)</p></div></div></div><p id="ins8ir" class="analysis">Restricting Non-medical Usage
+</p><div class="evidence-block"><blockquote>
+    "The Contracting Powers shall enact pharmacy laws or regulations to limit exclusively to medical and legitimate purposes the manufacture, sale, and use of norphine, cocaine, and their respective salts...They shall co-operate with one another to prevent the use of these drugs for any other purpose." (article 9)
+    <div><p class="citation">(League of Nations, International Opium Convention, 1912)</p></div></blockquote></div><p id="itrsui" class="analysis">Enforcement Measures
+</p><div class="evidence-block"><blockquote>
+    "The Contracting Powers shall examine the possibility of enacting laws or regulations making it a penal offence to be in illegal possession of raw opinm, prepared opium, morphine, cocaine, and their respective salts." (article 20)
+    <div><p class="citation">(League of Nations, International Opium Convention, 1912)</p></div></blockquote></div><p id="i18zpa" class="analysis">International Cooperation
+</p><div class="evidence-block"><blockquote>
+    "The Contracting Powers shall commmunicate to one another, throngh the Ministry Foreign Affairs of the Netherlands." (article 21)
+    <div><p class="citation">(League of Nations, International Opium Convention, 1912)</p></div></blockquote></div><h1>Second International Opium Conference - Geneva 1925
+</h1><div class="image-block"><img src="./international_reform_files/geneva_conference_3.jpg" id="iu90ux"><div id="ijqqun" class="image-text"><p class="image-citation">(League of Nations, Second Opium Conference, 1925)</p></div></div><p class="analysis">Although earlier conferences' failure to acknowledge opium as a global evil and enforce meaningful controls allowed the problem to expand, the 1925 Geneva Conference called for stricter international control, marking a shift toward more aggressive and centralized drug policy.</p><div class="block-pic"><div id="ikuj0o" class="image-block"><img src="./international_reform_files/geneva_conference_2.jpg" id="ij7irv"><div id="in9k3w" class="image-text"><p class="image-citation">(An upgraded International Opium Commission is passed, 1925)</p></div></div><div id="iwq1c9" class="left"><div class="evidence-block"><blockquote>
+        "...remember that the aim we have in view is to provide a really effective weapon to fight a scourage which has become increasingly dangerous to mankind.
+      </blockquote><blockquote>
+        The evil which we are here to combat has spread to all classes of society and to almost all countries. I need not say that we must attempt to cure those who have already contracted the pernicious habit of morphinomania."
+      </blockquote><div><p class="citation">(Records of the Second Opium Conference, 1925)
+        </p></div></div></div></div><h3 id="iqpb8z">Geneva Convention</h3><div class="block-pic"><div id="ibg7d4" class="left"><p id="ij7ege" class="analysis">Enforcement Body
+    </p><div class="evidence-block"><blockquote>
+        "A Permanent Central Board shall be appointed, within three months from the coming into force of the present Convention...In making the appointments, consideration shall be given to the importance of including on the Central Board, in equitable proportion, persons possessing a knowledge of the drug situation, both in the producing and manufacturing countries...[and] shall not hold any office which puts them in a position of direct dependence on their Governments."
+        <div><p class="citation">(League of Nations, Second Opium Conference, 1925)</p></div></blockquote></div></div><div id="i809h3" class="image-block"><img src="./international_reform_files/geneva_article_22.png" id="igv1pm"><div id="i91x93" class="image-text"><p class="image-citation">(League of Nations, Second Opium Conference, 1925)</p></div></div></div><div class="block-pic"><div id="i2nuts" class="image-block"><img src="./international_reform_files/geneva_article_24.png" id="izq1kf"><div id="ilnz5c" class="image-text"><p class="image-citation">(League of Nations, Second Opium Conference, 1925)</p></div></div><div id="i37pnu" class="left"><p id="igigx8" class="analysis">Mandatory Reports
+    </p><div class="evidence-block"><blockquote>
+        "The Contracting Parties agree to send in annually before December 31st, to the Permanent Central Board set up under Article 19, estimates of the quantities of each of the substances covered by the Convention to be imported into their territory for internal consumption during the following year for medical, scientific and other purposes." (article 21)
+        <div><p class="citation">(League of Nations, Second Opium Conference, 1925)</p></div></blockquote></div></div></div></div></div><div id="id9zi"><div id="i3zyk"><a href="Lasting-Legacy.html" id="i8qz9"><div>Lasting Legacy &gt;
+		  </div></a></div></div></div>
+
+
+<script src="./international_reform_files/jquery-3.3.1.min.js"></script>
+<script src="./international_reform_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="./international_reform_files/all.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="./international_reform_files/website.js"></script>
+
+<!--***Style Start***-->
+<link href="./international_reform_files/basesite.css" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Times New Roman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Times&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Verdana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arial Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candara&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calibri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+body {
+color: #000000;
+font-family: 'Times New Roman';
+background-color: #e3e3e3;
+
+}
+
+.container {
+background-color: transparent;
+}
+
+.navbar .navbar-collapse{
+justify-content: center
+}
+.navbar-nav, .navbar, .dropdown-menu{
+color: #ebebe3;
+background-color: #b97a95;
+}
+
+
+.nav-item, .dropdown-item{
+color: #ebebe3;
+background-color:#b97a95;
+}
+
+
+
+</style>
+
+<style>
+#iv7r{min-height:40px;padding-top:8px;padding-bottom:8px;padding:25px 0 8px 0;background-color:#fcfcfa;}#ioui{font-family:Georgia, serif;font-size:50px;color:#000000;text-align:center;font-weight:700;}#iwxa{min-height:auto;padding-top:8px;padding-bottom:8px;padding:0 0 0 0;}#iuwal{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 3px 50px;background-color:#3a2f29;}#i2kk8{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 5px 50px;background-color:#3a2f29;}.tab{display:inline-block;padding:.5em 1em;min-height:50px;min-width:50px;background-color:none;color:#3a2f29;font-family:Georgia, serif;font-size:1.2rem;}.nav-bar{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:center;}.dropdown{display:inline-block;position:relative;}.dropdown-content{display:none;position:absolute;background-color:#f8f5f2;min-width:160px;box-shadow:0px 4px 8px rgba(0,0,0,0.15);text-align:left;z-index:1;}.dropdown-content a{display:block;padding:10px 12px;color:#3a2f29;font-family:Georgia, serif;text-decoration:none;font-size:1rem;}.dropdown-content a:hover{background-color:#e6e0db;}.evidence-block blockquote{margin:0 0 10px;font-style:italic;font-size:1rem;line-height:1.65;padding:0;}.dropdown:hover .dropdown-content{display:block;}#i3zyk{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:right;margin:0 50px 0 50px;position:relative;}#i8qz9{display:inline-block;padding:10px 50px 10px 50px;min-height:auto;min-width:50px;border:2px solid #eeeeee;background-color:#ffffff;border-radius:20px;font-family:Georgia, serif;color:#4c4c4c;font-size:1rem;}#igf4p{min-height:40px;padding-top:8px;padding-bottom:8px;margin:0 50px 0 50px;padding:8px 0 8px 0;}.evidence-block{background-color:rgba(255,255,255,0.52);}#ihu46{margin-top:0;}#inue1{width:70%;display:block;margin:0 auto;}#if464{text-align:center;margin-bottom:30px;}#ife9g{flex:1.2;}#ia6q5{flex:0.8;}#ibiwi{width:77%;display:block;margin:0 auto;height:373.992px;}#i7wkt{text-align:center;margin-bottom:30px;}#il4ds{width:70%;display:block;margin:0 auto;}#ifrjk{text-align:center;margin-bottom:30px;}#i5aal{flex:1.2;}#iomrj{margin-top:0;font-weight:600;}#ihdv4{font-weight:600;}#in8ipf{flex:0.8;}#i0ayjg{width:100%;display:block;margin:0 auto;}#ikv5og{text-align:center;margin-bottom:30px;}#ins8ir{font-weight:600;}#itrsui{font-weight:600;}#i18zpa{font-weight:600;}#iu90ux{width:70%;display:block;margin:0 auto;}#ijqqun{text-align:center;margin-bottom:30px;}#ikuj0o{flex:0.8;}#ij7irv{width:100%;display:block;margin:0 auto;}#in9k3w{text-align:center;margin-bottom:30px;}#iwq1c9{flex:1.2;}#ibg7d4{flex:1.2;}#ij7ege{margin-top:0;font-weight:600;}#i809h3{flex:0.8;}#igv1pm{width:100%;display:block;margin:0 auto;}#i91x93{text-align:center;margin-bottom:30px;}#i2nuts{flex:0.8;}#izq1kf{width:100%;display:block;margin:0 auto;}#ilnz5c{text-align:center;margin-bottom:30px;}#i37pnu{flex:1.2;}#igigx8{margin-top:0;font-weight:600;}
+</style>
+
+    </div>
+
+
+<script>
+    window.onload =()=>{
+        setTimeout(()=>{
+            document.querySelectorAll('.gjs-lory-slides')?.forEach(x=>{
+                x.style = `transition-timing-function: ease; transition-duration: 600ms; transform: translate3d(0,0,0);`;
+                console.log('fixed sliders');
+            }, 0);
+        });
+    };
+</script>
+    
+<style>
+    /* CUSTOM THEME CSS */
+
+    .block {
+    margin-bottom: 20px;
+font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+background-color: #f3e7cf;          /* parchment base */
+color: #1c1a17;
+  }
+  .evidence-block {
+    position: relative;
+    padding: 22px 26px 10px 28px;
+    border-left: 4px solid rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.518);
+    box-shadow: 0 0 10px #725d3e57;
+    margin: 10px 0 10px 0;
+  }
+
+  .left .evidence-block {
+    margin: 0;
+  }
+
+  .image-block .evidence-block {
+    margin:0;
+  }
+
+  .evidence-block blockquote {
+    margin: 0 0 10px;
+    padding: 0;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .citation {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.55);
+    text-align: right;
+  }
+  .analysis {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  h3{
+    font-family:Georgia, serif;
+    font-size:30px;
+    color:#000000;
+    margin-top:20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  h1 {
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .block-pic {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .block-pic .left {
+    flex: 1.2;
+    margin-bottom: 0;
+  }
+  .block-pic .image-block {
+    flex: 0.8;
+    margin: 0;
+  }
+
+  img {
+    width: 50%;
+    display:block;
+    margin: 0 auto;
+  }
+  .block-pic .image-block img {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.25);
+    background: #fff;
+  }
+
+  .image-text{
+    text-align: center; margin-bottom: 30px;
+  }
+
+  .block-pic .image-text {
+    margin-top: 10px;
+    padding-left: 18px;
+    border-left: 3px solid rgba(0,0,0,.35);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .image-citation {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: rgba(0,0,0,.55);
+  }
+  .image-annotation {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+    /* CUSTOM THEME CSS END */
+    
+</style>
+
+
+
+<veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{appearance:auto}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{appearance:auto;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}@keyframes slide-in{0%{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.gradient-blue{background:radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)}.gradient-green{background:radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)}.gradient-purple{background:radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)}.bg-blue{background-color:#f2f5ff}.bg-purple{background-color:#f7f0ff}.bg-green{background-color:#ebffed}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;right:24px;bottom:24px;width:327px;border-radius:24px;overflow:hidden;box-shadow:0 24px 32px #00000014;animation:slide-in .3s ease-in-out forwards}.lock-screen__content{position:relative;padding:24px 24px 64px}.lock-screen__close{position:absolute;top:16px;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.5}.lock-screen__label{height:26px;width:fit-content;border-radius:50px;background-color:#fff3;padding-inline:16px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;line-height:18px;margin:-8px auto 16px}.lock-screen__title{color:#fff;text-align:center;font-size:20px;line-height:28px;font-weight:600;margin-bottom:8px}.lock-screen__description{color:#f5f6f7;text-align:center;font-size:14px;line-height:20px}.lock-screen__description b{font-weight:600}.lock-screen__card{position:relative;z-index:1;margin-top:-44px;background-color:#fff;border-radius:24px;padding:32px 20px 20px}.lock-screen__inner{margin-bottom:24px}.lock-screen__submit{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;height:40px;width:100%;border-radius:12px;padding-inline:16px;background-color:#f70;color:#fff;margin-bottom:16px}.lock-screen__skip{display:flex;align-items:center;justify-content:center;font-size:14px;line-height:20px;color:#82829c;margin-inline:auto}.price-card{border:1px solid #f2f2fc;background:linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);border-radius:24px;padding:24px 28px}.price-card__label{color:#4a5764;text-align:center;font-size:14px;line-height:20px;text-transform:uppercase;margin-bottom:16px}.price-card__price{display:flex;justify-content:center;align-items:flex-start;column-gap:2px;margin-bottom:12px}.price-card__currency{color:#515478;font-size:18px;line-height:28px}.price-card__number{color:#14142a;text-align:center;font-size:64px;line-height:54px}.price-card__wrap{display:flex;flex-direction:column}.price-card__decimal{color:#515478;font-size:18px;line-height:28px;font-weight:600}.price-card__period{color:#515478;font-size:14px;line-height:20px;margin-top:-6px}.price-card__discount{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.price-card__discount-divider{position:absolute;z-index:0;top:50%;left:0;width:100%;height:1px;background-color:#dbe2f9;transform:translateY(-50%)}.price-card__discount-icon{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}.price-card__discount-text{position:relative;z-index:2;color:#fff;font-size:12px;font-weight:600;line-height:18px}.price-card__features{display:flex;align-items:center;justify-content:center;column-gap:16px}.price-card__feature{color:#222e3a;font-size:14px;line-height:20px;display:flex;align-items:center;gap:6px}.price-card__feature:before{content:"";display:block;width:4px;height:4px;background-color:#20df9e;border-radius:50%;flex-shrink:0}.features-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.features-list__item{display:flex;flex-direction:column;align-items:center;gap:6px}.features-list__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}.features-list__text{color:#293a53;text-align:center;font-size:16px;line-height:24px;letter-spacing:-.1px}</style></template><style></style></veepn-lock-screen></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

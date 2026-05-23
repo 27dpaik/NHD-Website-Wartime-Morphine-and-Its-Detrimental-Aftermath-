@@ -1,0 +1,493 @@
+
+<!-- saved from url=(0036)origin.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <meta http-equiv="Content-Security-Policy" content="
+  default-src &#39;self&#39;;
+  script-src &#39;self&#39;		
+		&#39;unsafe-inline&#39;
+        https://data.illuminatingsoftware.com
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://code.jquery.com
+        https://stackpath.bootstrapcdn.com;
+  style-src &#39;self&#39;
+		&#39;unsafe-inline&#39;
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://stackpath.bootstrapcdn.com
+        https://data.illuminatingsoftware.com
+        https://cdnjs.cloudflare.com;
+  img-src &#39;self&#39; data:;
+  font-src &#39;self&#39;
+        https://fonts.googleapis.com
+		https://fonts.gstatic.com
+        https://cdn.orkboo.com
+        https://data.illuminatingsoftware.com;
+  frame-src &#39;self&#39;;
+  child-src &#39;none&#39;;
+  object-src &#39;none&#39;;
+  connect-src &#39;self&#39;
+        https://data.illuminatingsoftware.com
+		https://stackpath.bootstrapcdn.com;
+">
+    <script>
+
+        function isExternalIframe(iframe) {
+            let src = iframe.getAttribute('src') || '';
+
+            // Don't allow empty iframes, about:blank, data: URLs, javascript: URLs, etc.
+            if (!src || src.trim() === '' ||
+                src.startsWith('about:') ||
+                src.startsWith('data:') ||
+                src.startsWith('javascript:')) {
+                return true;
+            }
+
+            //return false if it is not a pdf. 
+            src = src.split('?')[0].split('#')[0];
+            let indexOfDot = src.lastIndexOf('.');
+            if (indexOfDot === -1) return true;
+            let ext = src.substring(indexOfDot);
+            if (ext.toLowerCase() !== '.pdf') return true;
+
+
+            try {
+                // Handles relative URLs, protocol-relative (//example.com), etc.
+                const url = new URL(src, window.location.href);
+                return url.host.toLowerCase() !== window.location.host.toLowerCase();
+            } catch (e) {
+                // Malformed URL or any other parsing issue → treat as violation
+                return true;
+            }
+        }
+
+        function createWarningElement() {
+            const warning = document.createElement('div');
+            warning.style.cssText = `
+            background: #d32f2f;
+            color: #ffffff;
+            padding: 25px 20px;
+            border: 5px solid #b71c1c;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        `;
+            warning.innerHTML = `
+            🚫 <strong>SECURITY VIOLATION</strong> 🚫<br>
+            Embedding content from an <u>unauthorized external domain</u> is strictly prohibited.<br>
+            <span style="font-size: 15px; opacity: 0.95;">This iframe has been removed.</span>
+        `;
+            return warning;
+        }
+
+        function blockExternalIframes() {
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (isExternalIframe(iframe)) {
+                    const warning = createWarningElement();
+                    if (iframe.parentNode) {
+                        iframe.parentNode.replaceChild(warning, iframe);
+                    }
+                }
+            });
+        }
+
+        // Main starter – call this once (usually at the bottom of your page or in window.onload)
+        function startExternalIframeBlocker() {
+            // Initial scan in case any iframes already exist
+            blockExternalIframes();
+
+            // Watch the entire DOM for any changes (new nodes or src attribute changes)
+            const observer = new MutationObserver((mutations) => {
+                let shouldScan = false;
+
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        shouldScan = true;
+                    }
+
+                    // Also catch if JavaScript dynamically changes an iframe's src
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                        const target = mutation.target;
+                        if (target && target.tagName === 'IFRAME') {
+                            if (isExternalIframe(target)) {
+                                const warning = createWarningElement();
+                                target.parentNode?.replaceChild(warning, target);
+                            }
+                        }
+                    }
+                });
+
+                if (shouldScan) {
+                    blockExternalIframes();
+                }
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['src']
+            });
+
+        }
+
+        // ====================== START THE PROTECTOR ======================
+        //startExternalIframeBlocker();
+    </script>
+    
+
+
+
+</head>
+<body id="c4941" data-new-gr-c-s-check-loaded="14.1287.0" data-gr-ext-installed="">
+    <div class="container it-is-set">
+        
+
+<title>origin</title>
+<link rel="stylesheet" href="./origin_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+</style>
+<!--***Split***-->
+
+
+<div id="iv7r"><h1 id="ioui">Origin</h1><div id="ish7g"><div class="nav-bar"><a href="index.html" class="tab">Home<div>
+    </div></a><a href="Background.html" class="tab">Background<div>
+    </div></a><a href="Thesis.html" class="tab">Thesis<div>
+    </div></a><a href="origin.html" class="tab">Origin<div>
+    </div></a><div class="dropdown"><a class="tab">Reaction ▼</a><div class="dropdown-content"><a href="Medical-Reaction.html">Medical Reaction</a><a href="Public-Outcry.html">Public Outcry</a></div></div><div class="dropdown"><a class="tab">Reform ▼</a><div class="dropdown-content"><a href="incentive.html">Incentive</a><a href="international_reform.html">International Reform</a></div></div><a href="Lasting-Legacy.html" class="tab">Lasting Legacy<div>
+    </div></a><a href="Process-Paper.html" class="tab">Documents<div>
+    </div></a></div></div><div id="iwxa"><div id="iuwal"></div><div id="i2kk8"></div></div><div id="iqe965"><div id="iu8mo"></div><div id="i6j77b"><div id="inbojh" class="image-text"><p class="image-citation">“Washington, D.C. Patients in Ward K of Armory Square Hospital.” August 1865. <em>Library of Congress</em></p></div></div></div><div id="i04f2"><section class="bdg-sect"><div id="i7toj"><div id="ipr95"><h1 id="it6tf">
+  Introduction to the Battlefield
+</h1><div class="block-pic"><div class="image-block"><img src="./origin_files/Screenshot_2025-11-23_at_6_47_45_PM.png" id="i0899"><div class="image-text"><p class="image-citation">
+        Alfred Bellard, "Drawing of a Civil War Leg Amputation from the Diary of Alfred Bellard, 1860s," Civil War In Minnesota Lives
+      </p></div></div><div class="left"><div class="evidence-block"><blockquote>
+        “Prior to the war, alcoholic drinks, physical restraints, opioid drugs and bite blocks were the most typically employed methods of keeping a patient under control during surgery. It was thought to be unmanly for a male to undergo surgery with an anesthetic, which was usually reserved for women and children. There was even a belief that the use of ‘cold steel’ had a beneficial effect, and it would not cause the depression thought to occur with the use of anesthesia.”
+        <div><p class="citation">(​​​​Maurice S. Albin, "Modern anesthesia traces roots to American civil war," 2014)
+          </p></div></blockquote></div></div></div><h1 id="i3m49">The Hypodermic Syringe
+</h1><div class="block-pic"><div class="left"><div class="evidence-block"><blockquote>
+        "Two versions of a syringe to accompany the needle were independently invented by scientists in 1853. Charles Gabriel Pravaz invented a silver tube syringe that used a screw mechanism to carefully control the dosage, while Alexander Wood used a glass tube that allowed the physician to see how much was in the syringe and a plunger."
+        <div><p class="citation">(Will, et al, The History of Maxillofacial Surgery: An Evidence-Based Journey, 2017)
+          </p></div></blockquote></div><p class="analysis">
+      The hypodermic needle allowed drugs to be administered directly into the bloodstream, making effects faster and more potent, unlike prior drugs that were delivered orally or topically on the wounds.
+    </p></div><div class="image-block"><img src="./origin_files/Screenshot_2025-12-26_at_8_32_03_AM.png" id="ihxcd"><div class="image-text"><p class="image-citation">
+        Stephen Smith,&nbsp;c. 1862, 
+        <i>The Hand-Book of Surgical Operations
+        </i>, National Library of Medicine Digital Collections.
+      </p></div></div></div><div class="image-block"><img src="./origin_files/Syringe.jpg" id="ip61f"><div class="image-text"><p class="image-citation">
+      Stephen Smith,&nbsp;c. 1862, 
+      <i>The Hand-Book of Surgical Operations
+      </i>, National Library of Medicine Digital Collections.
+    </p></div></div><h1 id="i3177j">Contrast in Administration Techniques</h1><div class="image-block"><img src="./origin_files/Screenshot_2025-12-26_at_9_50_36_AM.png" id="i9kh3"><div class="image-text"><p class="image-citation">
+      Onset times and absorption rates provided by articles: Extended-release morphine sulfate in treatment of severe acute and chronic pain, Effectiveness of Topical Administration of Opioids in Palliative Care: A Systematic Review, and Comparative Effectiveness of Analgesics To Reduce Acute Pain in the Prehospital Setting.
+    </p></div></div><p class="analysis">
+  IV, administered via a hypodermic syringe, clearly has the highest absorption rate and fastest onset times. Oral administration clearly lags far behind. Topical administration’s volatility posed risks–while some were very effective, others were completely ineffective.
+</p><h1>Medical Revolution
+</h1><div class="evidence-block"><blockquote>
+    “Dr. Silas Weir Mitchell noted that in the army hospital for nervous diseases, more than 40,000 doses of morphine were given hypodermically to psychiatric patients in a single year. A staggering 10 million opium pills were given to patients during the war, along with 2,841,000 ounces of other opium-based preparations such as laudanum, opium with ipeac, and paregoric. In all, 29,828 ounces of morphine sulphate were administered. Not coincidentally, by 1900 there were 200,000 drug addicts in America.”
+  </blockquote><div><p class="citation">(Richard A. Gaibriel, "Healers or Horrors: Civil War Medicine," 2011)
+    </p></div></div><p class="analysis">
+  Stable anesthesia revolutionized how surgeons approached surgery. Amputations were conducted at unprecedented rates, and the survival rates of such surgeries were also unbelievably high. Surgeons no longer worried about retaliation from patients during surgery and could ignore the nightmare of a patient dying from the anesthesia. They also administered morphine with precision due to the hypodermic syringe. Morphine's introduction as a stable anesthesia, though, had saved countless lives; it led to countless overdose deaths in the future.
+</p><div class="block-pic"><div class="image-block"><div class="evidence-block"><blockquote>
+        "Of the 29,143 amputations performed, the fatality rate was 25.8 percent. Out of 4,656 excisions, the fatality rate was 27.5 percent."
+      </blockquote><div><p class="citation">(Harold Ellis, "Civil War Medicine: Challenges and Triumphs," 2002)
+        </p></div></div><img src="./origin_files/amputees-1024x473.jpg" id="i114tt"><div class="image-text"><p class="image-citation">
+        Jocelyn Green, 2015, "The Civil War and Prosthetic Limbs"
+      </p></div></div><div class="image-block"><img src="./origin_files/master-pnp-cwpb-01800-01887a.jpg" id="ih2zfq"><div class="image-text"><p class="image-citation">
+        "Embalming Surgeon," 1863, Library of Congress
+      </p></div></div></div><h3>The Historical Context: Why So?
+</h3><p class="analysis">Unlike previous wars, amputations became in higher demand because of the Minié ball. This new conically shaped bullet, unlike prior spherical ones, splintered the bone instead of penetrating it, requiring more amputations to effectively treat wounds. Given the numerous amputations that took place, morphine was necessary as an anesthetic and as a painkiller in the post-surgery days.
+</p><div class="block-pic"><div id="i21erz" class="left"><img src="./origin_files/wallen_wounded_by_minie_ball.webp" id="ica5fj"><div class="image-text"><p class="image-citation">
+        Edward Stauch, “Wallen wounded by Minie ball,” 1863, Wikimedia Commons
+      </p></div><div class="evidence-block"><blockquote>
+        "The vast majority of wounds documented during the Civil War were caused by the Minié ball, while the rest were from grapeshot, canister or other exploding shells. Few men were treated for saber or bayonet wounds and even fewer for cannon ball wounds"
+        <div><p class="citation">(Terry Reimer, "Surgeon's Call," 2007)
+          </p></div></blockquote></div></div><div id="iz841e" class="image-block"><div class="evidence-block"><blockquote>
+        “The effect of the powder when firing is to expand the thin portion of lead around the recess at the base of the ball, making it fit tightly the grooves of the rifle. With these advantages, the missile may be project to immense distances with unerring precision, and the effects are truly terrible; bones are ground almost to powder, muscles, ligaments, and tendons torn away, and the parts otherwise so mutilated, that loss of life, certainly of limb, is almost an inevitable consequence.”
+        <div><p class="citation">(William Helmuth "A System of Surgery," 1879)
+          </p></div></blockquote></div><img src="./origin_files/minie-ball-3624045037-1556314609644.webp" id="ihjiq1"><div class="image-text"><p class="image-citation">
+        Mike Cumpston, “Minié ball,” 2008, Wikimedia Commons
+      </p></div></div></div><h1 id="i4cmlo">The Tragic Truth
+</h1><div class="image-block"><img src="./origin_files/The-Age-of-Drugs.webp" id="if8v7s"><div id="iljbtk" class="image-text"><p class="image-citation">
+      Louis Dalrymple, “The Age of Drugs,” 1900, Library of Congress.
+    </p></div></div><div class="evidence-block"><blockquote>
+    "Opiates are addictive, however, and doctors’ prescriptions all-too-predictably led to addiction for Civil War veterans. Not only was opiate addiction dangerous and unhealthy, resulting in thousands of overdose deaths between the 1860s and the early twentieth century, but the condition was also deeply stigmatized in Civil War America. Most Americans considered addiction to be an unmanly and immoral vice. Addicted veterans deserved punishment, not sympathy, according to contemporary observers."
+    <div><p class="citation">Jonathan Jones, "The “Great Risk” of “Opium Eating”: How Civil War-Era Doctors Reacted to Prescription Opioid Addiction," 2020
+      </p></div></blockquote></div><p class="analysis">
+  For context, during this time period in the 1860s, men were expected to be self-reliant workers, and masculinity was an expected societal role. America was a male-dominated society, where "manly"/"masculine" men were the norm. Morphine, being a sustained pain relief for many amputees, hence, made the addicts who relied on the drug be frowned on in society for being "weak". 
+</p><div class="evidence-block"><blockquote>
+    "The experience of Confederate artillerist John Tackett Goolrick and Frances Bernard Goolrick, his wife, illustrates the wide-ranging health, emotional, and social consequences of opioid addiction for Civil War veterans and their families. The Goolricks wrote scores of letters describing the staggering costs of John’s morphine addiction, which stalked the family for nearly a half-century after the Civil War."
+    <div><p class="citation">Jonathan Jones, 
+        <i>Opium Slavery: Civil War Veterans and Opiate Addiction
+        </i>, 2020
+      </p></div></blockquote></div></div></div></section><h1 id="is2g8n">Development of Morphine Over the Years</h1><div id="ixic8y" class="carousel"><img src="./origin_files/5_box.jpg" alt="Slide 1" class="slide active"><img src="./origin_files/main.jpg" alt="Slide 2" class="slide"><img src="./origin_files/IMA-0018_cropped-scaled.webp" alt="Slide 1" class="slide"><img src="./origin_files/nurses-guide-to-morphine.webp" alt="Slide 1" class="slide"><div class="carousel-nav"><div class="nav-bubble active" data-index="0"></div><div class="nav-bubble" data-index="1"></div><div class="nav-bubble" data-index="2"></div><div class="nav-bubble" data-index="3"></div></div></div><div id="iloep1"><div id="iqcxdp" class="image-text"><p class="image-citation">
+  E. R. Squibb &amp; Sons, "Item No. 9115500; Morphine Tartrate," "A paratrooper demonstrates Medical Item No. 9115500, 5 Tubes, WW2 US Medical Research Centre" 
+   National Museum of the Royal New Zealand Navy, "Morphine syrettes (Omnopon Total Opium Alkaloid)," Torpedo Bay Navy Museum 
+   Rebecca L. Thomas, "When Narcotics are Mishandled," Thomas &amp; Wickenheiser 
+  </p></div></div></div><div id="i9ieg"><div id="i3zyk"><a href="Medical-Reaction.html" id="i8qz9"><div id="innlyj">Medical Reaction &gt;
+    </div></a></div></div></div><script>var items = document.querySelectorAll('#ixic8y');
+        for (var i = 0, len = items.length; i < len; i++) {
+          (function(){const slides = this.querySelectorAll('.slide');
+                    const navContainer = this.querySelector('.carousel-nav');
+                    if (slides.length === 0) return;
+
+                    let index = 0;
+
+                    // Initialize navigation bubbles
+                    if (!navContainer) {
+                        const nav = document.createElement('div');
+                        nav.className = 'carousel-nav';
+                        slides.forEach((_, i) => {
+                            const bubble = document.createElement('div');
+                            bubble.className = 'nav-bubble';
+                            bubble.dataset.index = i;
+                            nav.appendChild(bubble);
+                        });
+                        this.appendChild(nav);
+                    }
+
+                    const updateBubbles = () => {
+                        const bubbles = this.querySelectorAll('.nav-bubble');
+                        bubbles.forEach((b, i) => {
+                            b.classList.toggle('active', i === index);
+                        });
+                    };
+
+                    const showSlide = (newIndex) => {
+                        slides.forEach((s) => s.classList.remove('active'));
+                        slides[newIndex].classList.add('active');
+                        index = newIndex;
+                        updateBubbles();
+                    };
+
+                    // Initialize first slide
+                    showSlide(0);
+
+                    // Handle bubble clicks
+                    this.querySelectorAll('.nav-bubble').forEach((bubble) => {
+                        bubble.addEventListener('click', () => {
+                            const newIndex = parseInt(bubble.dataset.index);
+                            showSlide(newIndex);
+                        });
+                    });}.bind(items[i]))();
+        }</script>
+
+
+<script src="./origin_files/jquery-3.3.1.min.js"></script>
+<script src="./origin_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="./origin_files/all.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="./origin_files/website.js"></script>
+
+<!--***Style Start***-->
+<link href="./origin_files/basesite.css" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Times New Roman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Times&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Verdana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arial Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candara&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calibri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+body {
+color: #000000;
+font-family: 'Times New Roman';
+background-color: #e3e3e3;
+
+}
+
+.container {
+background-color: transparent;
+}
+
+.navbar .navbar-collapse{
+justify-content: center
+}
+.navbar-nav, .navbar, .dropdown-menu{
+color: #ebebe3;
+background-color: #b97a95;
+}
+
+
+.nav-item, .dropdown-item{
+color: #ebebe3;
+background-color:#b97a95;
+}
+
+
+
+</style>
+
+<style>
+[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="body"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]{font-family:Georgia, "Times New Roman", Times, serif;color:#000000;}#iv7r{min-height:40px;padding-top:8px;padding-bottom:8px;padding:25px 0 8px 0;background-color:#fdfcfa;}#ioui{font-family:Georgia, serif;font-size:50px;color:#000000;text-align:center;font-weight:700;}#iwxa{min-height:auto;padding-top:8px;padding-bottom:8px;padding:0 0 0 0;}#iuwal{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 3px 50px;background-color:#3a2f29;}#i2kk8{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 5px 50px;background-color:#3a2f29;}#iu8mo{min-height:300px;padding-top:8px;padding-bottom:8px;background-repeat:no-repeat;background-position:center top;background-attachment:scroll;background-size:cover;background-image:url('./origin_files/Screenshot_2026-01-03_at_4_34_12_PM.png');margin:0 50px 0 50px;}#i04f2{min-height:40px;padding-top:8px;padding-bottom:8px;margin:0 50px 0 50px;}.analysis{min-height:40px;padding-top:8px;padding-bottom:8px;padding:8px 0 8px 0;margin:0;line-height:1.8;color:rgba(0, 0, 0, 0.9);font-family:Georgia, serif;font-size:1rem;}.evidence-block{padding-left:22px;margin-bottom:10px;border-left:4px solid rgba(0, 0, 0, 0.35);color:black;position:relative;padding:22px 28px 10px 28px;background:rgba(255, 255, 255, 0.518);}.evidence-block blockquote{margin:0 0 10px;font-style:italic;font-size:1rem;line-height:1.65;padding:0;}.citation{display:block;margin-top:8px;font-size:0.9rem;font-style:normal;color:rgba(0, 0, 0, 0.55);text-align:right;}.evidence-block:last-of-type::after{content:"";}
+
+h3{font-family:Georgia, serif;font-size:50px;color:#000000;margin-top:20px;}h3{font-family:Georgia, serif;font-size:30px;color:#000000;margin-top:20px;font-weight:bold;}h1{font-weight:bold;}.block-pic{display:flex;gap:28px;align-items:flex-start;margin-bottom:10px;}.block-pic .left{flex:1.2;margin-bottom:0;}.block-pic .image-block{flex:0.8;margin:0;}.block-pic .image-block img{width:100%;display:block;border:1px solid rgba(0,0,0,.25);background:#fff;}.block-pic .image-text{margin-top:10px;padding-left:18px;border-left:3px solid rgba(0,0,0,.35);}.image-citation{margin:0 0 6px;font-size:0.85rem;color:rgba(0,0,0,.55);}.tab{display:inline-block;padding:.5em 1em;min-height:50px;min-width:50px;background-color:none;color:#3a2f29;font-family:Georgia, serif;font-size:1.2rem;}.nav-bar{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:center;}.dropdown{display:inline-block;position:relative;}.dropdown-content{display:none;position:absolute;background-color:#f8f5f2;min-width:160px;box-shadow:0px 4px 8px rgba(0,0,0,0.15);text-align:left;z-index:1;}.dropdown-content a{display:block;padding:10px 12px;color:#3a2f29;font-family:Georgia, serif;text-decoration:none;font-size:1rem;}.dropdown-content a:hover{background-color:#e6e0db;}.dropdown:hover .dropdown-content{display:block;}#iqe965{min-height:40px;padding-top:8px;padding-bottom:8px;padding:0 0 0 0;margin:0 0 30px 0;}#inbojh{text-align:center;}#iqcxdp{text-align:center;margin-bottom:30px;}#it6tf{margin-top:0;}#i0899{width:100%;display:block;margin:0 auto;}#ihxcd{width:100%;display:block;margin:0 auto;}#ip61f{width:80%;display:block;margin:0 auto;}#i9kh3{width:90%;display:block;margin:0 auto;}#i114tt{width:100%;display:block;margin:0 auto;}#ih2zfq{width:100%;display:block;margin:0 auto;}#i21erz{flex:1;}#ica5fj{width:100%;display:block;margin:0 auto;}#iz841e{flex:1;}#ihjiq1{width:100%;display:block;margin:0 auto;}#if8v7s{width:90%;display:block;margin:0 auto;}#iljbtk{text-align:center;margin-bottom:30px;}#i3zyk{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:right;margin:0 50px 0 50px;position:relative;}#i8qz9{display:inline-block;padding:10px 50px 10px 50px;min-height:auto;min-width:50px;border:2px solid #eeeeee;background-color:#ffffff;border-radius:20px;font-family:Georgia, serif;color:#4c4c4c;font-size:1rem;}
+</style>
+
+    </div>
+
+
+<script>
+    window.onload =()=>{
+        setTimeout(()=>{
+            document.querySelectorAll('.gjs-lory-slides')?.forEach(x=>{
+                x.style = `transition-timing-function: ease; transition-duration: 600ms; transform: translate3d(0,0,0);`;
+                console.log('fixed sliders');
+            }, 0);
+        });
+    };
+</script>
+    
+<style>
+    /* CUSTOM THEME CSS */
+
+    .block {
+    margin-bottom: 20px;
+font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+background-color: #f3e7cf;          /* parchment base */
+color: #1c1a17;
+  }
+  .evidence-block {
+    position: relative;
+    padding: 22px 26px 10px 28px;
+    border-left: 4px solid rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.518);
+    box-shadow: 0 0 10px #725d3e57;
+    margin: 10px 0 10px 0;
+  }
+
+  .left .evidence-block {
+    margin: 0;
+  }
+
+  .image-block .evidence-block {
+    margin:0;
+  }
+
+  .evidence-block blockquote {
+    margin: 0 0 10px;
+    padding: 0;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .citation {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.55);
+    text-align: right;
+  }
+  .analysis {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  h3{
+    font-family:Georgia, serif;
+    font-size:30px;
+    color:#000000;
+    margin-top:20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  h1 {
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .block-pic {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .block-pic .left {
+    flex: 1.2;
+    margin-bottom: 0;
+  }
+  .block-pic .image-block {
+    flex: 0.8;
+    margin: 0;
+  }
+
+  img {
+    width: 50%;
+    display:block;
+    margin: 0 auto;
+  }
+  .block-pic .image-block img {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.25);
+    background: #fff;
+  }
+
+  .image-text{
+    text-align: center; margin-bottom: 30px;
+  }
+
+  .block-pic .image-text {
+    margin-top: 10px;
+    padding-left: 18px;
+    border-left: 3px solid rgba(0,0,0,.35);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .image-citation {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: rgba(0,0,0,.55);
+  }
+  .image-annotation {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+    /* CUSTOM THEME CSS END */
+    
+</style>
+
+
+
+<veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{appearance:auto}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{appearance:auto;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}@keyframes slide-in{0%{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.gradient-blue{background:radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)}.gradient-green{background:radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)}.gradient-purple{background:radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)}.bg-blue{background-color:#f2f5ff}.bg-purple{background-color:#f7f0ff}.bg-green{background-color:#ebffed}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;right:24px;bottom:24px;width:327px;border-radius:24px;overflow:hidden;box-shadow:0 24px 32px #00000014;animation:slide-in .3s ease-in-out forwards}.lock-screen__content{position:relative;padding:24px 24px 64px}.lock-screen__close{position:absolute;top:16px;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.5}.lock-screen__label{height:26px;width:fit-content;border-radius:50px;background-color:#fff3;padding-inline:16px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;line-height:18px;margin:-8px auto 16px}.lock-screen__title{color:#fff;text-align:center;font-size:20px;line-height:28px;font-weight:600;margin-bottom:8px}.lock-screen__description{color:#f5f6f7;text-align:center;font-size:14px;line-height:20px}.lock-screen__description b{font-weight:600}.lock-screen__card{position:relative;z-index:1;margin-top:-44px;background-color:#fff;border-radius:24px;padding:32px 20px 20px}.lock-screen__inner{margin-bottom:24px}.lock-screen__submit{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;height:40px;width:100%;border-radius:12px;padding-inline:16px;background-color:#f70;color:#fff;margin-bottom:16px}.lock-screen__skip{display:flex;align-items:center;justify-content:center;font-size:14px;line-height:20px;color:#82829c;margin-inline:auto}.price-card{border:1px solid #f2f2fc;background:linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);border-radius:24px;padding:24px 28px}.price-card__label{color:#4a5764;text-align:center;font-size:14px;line-height:20px;text-transform:uppercase;margin-bottom:16px}.price-card__price{display:flex;justify-content:center;align-items:flex-start;column-gap:2px;margin-bottom:12px}.price-card__currency{color:#515478;font-size:18px;line-height:28px}.price-card__number{color:#14142a;text-align:center;font-size:64px;line-height:54px}.price-card__wrap{display:flex;flex-direction:column}.price-card__decimal{color:#515478;font-size:18px;line-height:28px;font-weight:600}.price-card__period{color:#515478;font-size:14px;line-height:20px;margin-top:-6px}.price-card__discount{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.price-card__discount-divider{position:absolute;z-index:0;top:50%;left:0;width:100%;height:1px;background-color:#dbe2f9;transform:translateY(-50%)}.price-card__discount-icon{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}.price-card__discount-text{position:relative;z-index:2;color:#fff;font-size:12px;font-weight:600;line-height:18px}.price-card__features{display:flex;align-items:center;justify-content:center;column-gap:16px}.price-card__feature{color:#222e3a;font-size:14px;line-height:20px;display:flex;align-items:center;gap:6px}.price-card__feature:before{content:"";display:block;width:4px;height:4px;background-color:#20df9e;border-radius:50%;flex-shrink:0}.features-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.features-list__item{display:flex;flex-direction:column;align-items:center;gap:6px}.features-list__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}.features-list__text{color:#293a53;text-align:center;font-size:16px;line-height:24px;letter-spacing:-.1px}</style></template><style></style></veepn-lock-screen></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

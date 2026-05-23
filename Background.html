@@ -1,0 +1,408 @@
+
+<!-- saved from url=(0040)Background.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <meta http-equiv="Content-Security-Policy" content="
+  default-src &#39;self&#39;;
+  script-src &#39;self&#39;		
+		&#39;unsafe-inline&#39;
+        https://data.illuminatingsoftware.com
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://code.jquery.com
+        https://stackpath.bootstrapcdn.com;
+  style-src &#39;self&#39;
+		&#39;unsafe-inline&#39;
+        https://fonts.googleapis.com
+        https://cdn.orkboo.com
+        https://stackpath.bootstrapcdn.com
+        https://data.illuminatingsoftware.com
+        https://cdnjs.cloudflare.com;
+  img-src &#39;self&#39; data:;
+  font-src &#39;self&#39;
+        https://fonts.googleapis.com
+		https://fonts.gstatic.com
+        https://cdn.orkboo.com
+        https://data.illuminatingsoftware.com;
+  frame-src &#39;self&#39;;
+  child-src &#39;none&#39;;
+  object-src &#39;none&#39;;
+  connect-src &#39;self&#39;
+        https://data.illuminatingsoftware.com
+		https://stackpath.bootstrapcdn.com;
+">
+    <script>
+
+        function isExternalIframe(iframe) {
+            let src = iframe.getAttribute('src') || '';
+
+            // Don't allow empty iframes, about:blank, data: URLs, javascript: URLs, etc.
+            if (!src || src.trim() === '' ||
+                src.startsWith('about:') ||
+                src.startsWith('data:') ||
+                src.startsWith('javascript:')) {
+                return true;
+            }
+
+            //return false if it is not a pdf. 
+            src = src.split('?')[0].split('#')[0];
+            let indexOfDot = src.lastIndexOf('.');
+            if (indexOfDot === -1) return true;
+            let ext = src.substring(indexOfDot);
+            if (ext.toLowerCase() !== '.pdf') return true;
+
+
+            try {
+                // Handles relative URLs, protocol-relative (//example.com), etc.
+                const url = new URL(src, window.location.href);
+                return url.host.toLowerCase() !== window.location.host.toLowerCase();
+            } catch (e) {
+                // Malformed URL or any other parsing issue → treat as violation
+                return true;
+            }
+        }
+
+        function createWarningElement() {
+            const warning = document.createElement('div');
+            warning.style.cssText = `
+            background: #d32f2f;
+            color: #ffffff;
+            padding: 25px 20px;
+            border: 5px solid #b71c1c;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        `;
+            warning.innerHTML = `
+            🚫 <strong>SECURITY VIOLATION</strong> 🚫<br>
+            Embedding content from an <u>unauthorized external domain</u> is strictly prohibited.<br>
+            <span style="font-size: 15px; opacity: 0.95;">This iframe has been removed.</span>
+        `;
+            return warning;
+        }
+
+        function blockExternalIframes() {
+            document.querySelectorAll('iframe').forEach(iframe => {
+                if (isExternalIframe(iframe)) {
+                    const warning = createWarningElement();
+                    if (iframe.parentNode) {
+                        iframe.parentNode.replaceChild(warning, iframe);
+                    }
+                }
+            });
+        }
+
+        // Main starter – call this once (usually at the bottom of your page or in window.onload)
+        function startExternalIframeBlocker() {
+            // Initial scan in case any iframes already exist
+            blockExternalIframes();
+
+            // Watch the entire DOM for any changes (new nodes or src attribute changes)
+            const observer = new MutationObserver((mutations) => {
+                let shouldScan = false;
+
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        shouldScan = true;
+                    }
+
+                    // Also catch if JavaScript dynamically changes an iframe's src
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                        const target = mutation.target;
+                        if (target && target.tagName === 'IFRAME') {
+                            if (isExternalIframe(target)) {
+                                const warning = createWarningElement();
+                                target.parentNode?.replaceChild(warning, target);
+                            }
+                        }
+                    }
+                });
+
+                if (shouldScan) {
+                    blockExternalIframes();
+                }
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['src']
+            });
+
+        }
+
+        // ====================== START THE PROTECTOR ======================
+        //startExternalIframeBlocker();
+    </script>
+    
+
+
+
+</head>
+<body id="c12519" data-new-gr-c-s-check-loaded="14.1287.0" data-gr-ext-installed="">
+    <div class="container it-is-set">
+        
+
+<title>Background</title>
+<link rel="stylesheet" href="./Background_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+</style>
+<!--***Split***-->
+
+
+<div id="iv7r"><h1 id="ioui">Background</h1><div id="ish7g"><div class="nav-bar"><a href="index.html" class="tab">Home<div>
+    </div></a><a href="Background.html" class="tab">Background<div>
+    </div></a><a href="Thesis.html" class="tab">Thesis<div>
+    </div></a><a href="origin.html" class="tab">Origin<div>
+    </div></a><div class="dropdown"><a class="tab">Reaction ▼</a><div class="dropdown-content"><a href="Medical-Reaction.html">Medical Reaction</a><a href="Public-Outcry.html">Public Outcry</a></div></div><div class="dropdown"><a class="tab">Reform ▼</a><div class="dropdown-content"><a href="incentive.html">Incentive</a><a href="international_reform.html">International Reform</a></div></div><a href="Lasting-Legacy.html" class="tab">Lasting Legacy<div>
+    </div></a><a href="Process-Paper.html" class="tab">Documents<div>
+    </div></a></div></div><div id="iwxa"><div id="iuwal"></div><div id="i2kk8"></div></div><div id="i1ldkf"><div id="iu8mo"></div><div id="iqbdil"><div id="i31az" class="image-text"><p class="image-citation">"St. James Society Morphine Opium Laudanum Drug Addiction Cure." 1898. Period Paper.</p></div></div></div><div id="i04f2"><section class="bdg-sect"><div id="i7toj"><div id="ipr95"><h1 id="imntv">Discovery
+</h1><p class="analysis">
+  In 1804, German pharmacist Friedrich Sertürner discovered how to extract the first plant alkaloid, morphine, from opium, as an alternative to opium.
+</p><div class="block-pic"><div class="image-block"><img src="./Background_files/serturner.jpg" id="i3jdg"><div class="image-text"><p class="image-citation">
+        Julius Giere. Friedrich Serturner. c. 1830. Wikimedia Commons.
+      </p></div></div><div class="left"><div class="evidence-block"><blockquote>
+        "By the mid-1800s, morphine was primarily ingested orally and was “as commonly regarded as a universal panacea, used to treat as many as fifty-four diseases, including insanity, diarrhea, dysentery, menstrual and menopausal pain, and nymphomania."
+        <div><p class="citation">(H. H. Kane, "Drugs that Enslave: The Opium, Morphine, Chloral, and Hashisch Habits", 1881).</p></div></blockquote><blockquote>
+        “By 1834 it was ranked as the single most widely prescribed item in the materia medica.”
+        <div><p class="citation">(David Courtwright, Dark Paradise , 2001).
+          </p></div></blockquote></div></div></div><h1>Symptoms and Addiction
+</h1><p class="analysis">Effects included euphoria and pain relief. However, morphine had to be administered in time to prevent severe side effects that would arise until another dose was taken.<br></p><div class="evidence-block"><blockquote id="iaqxi">
+    "The mind is incapable of healthy action, the temper is decidedly aggravated."   
+  </blockquote><blockquote id="ibilz">
+    "They suffer from terrible nightmares. They are constantly on the edge of imaginary precipices, or falling, falling down dizzy heights."
+  </blockquote><blockquote id="ixlm9">
+    "The stomach rebels ; nausea is persistent and distressing ; ... the lips and throat are dry and parched ; "
+  </blockquote><blockquote id="icvpz">
+    "A dry, irritating cough sets in. Pains girdle the body and shoot with agonizing intensity down the limbs and into the face. The muscular system fails."
+  </blockquote><blockquote id="icl4m">
+    "The circulation is affected ; flushing and chilliness alternate ; the eyes are dry, and feel as though filled with sand."
+  </blockquote><hr id="idijm"><blockquote id="i4ye7">
+    "A dose is taken. A pleasant sense of warmth pervades the body ; the mind clears, the hands become steady, the gait natural, the pains vanish, the nausea and diarrhoea cease, and existence becomes again bearable.
+  </blockquote><div><p class="citation">(H. H. Kane, "Drugs that Enslave: The Opium, Morphine, Chloral, and Hashisch Habits", 1881)</p></div></div><div class="image-block"><img src="./Background_files/morphinegirl.webp" id="imlia"><div class="image-text"><p class="image-citation">
+      Santiago Rusiñol. "Morphine’s Girl." 1894. Cau Ferrat Museum.
+    </p></div></div><div class="block-pic"><div id="izrnj" class="left"><div class="evidence-block"><blockquote>
+        "Each day, each hour, each minute binds [morphine-users] more firmly, until at last they feel their own inability to cope with the demon that has overpowered them, and abandon themselves, hopelessly, listlessly, to the vice...They do not continue its use because it gives them pleasure, but simply because it is the only thing that, in increasing doses, can save them from the torment it has itself imposed ; because without it they are sunk into a living hell." 
+        <div><p class="citation">(Susanne George Bloomfield, "The Boy's Mother": Nineteenth-century Drug Dependence in the Life of Kate M. Cleary", 2000).</p></div></blockquote></div></div><div id="ifrgt" class="image-block"><div id="ieaqqv"><img src="./Background_files/5077.webp" id="iky6bl"><div id="ifgf0l"><p>(“Long opiate use has a history in America’s latest epidemic.” <em>The Guardian</em>,&nbsp;2016)</p></div></div></div></div><div id="i8qyb" class="image-text"></div><p class="analysis">Morphine was even administered to women and children for period cramps and teething, respectively. Advertised as a universal panacea, opiate was easily accessible. Once addicted, users continued to access morphine from their doctors, switching from medical to recreational usage.</p></div></div></section></div><div id="i9ieg"><div id="i3zyk"><a href="Thesis.html" id="i8qz9"><div>Thesis &gt;
+    </div></a></div></div></div>
+
+
+<script src="./Background_files/jquery-3.3.1.min.js"></script>
+<script src="./Background_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="./Background_files/all.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="./Background_files/website.js"></script>
+
+<!--***Style Start***-->
+<link href="./Background_files/basesite.css" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Times New Roman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Times&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Verdana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arial Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candara&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calibri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+body {
+color: #000000;
+font-family: 'Times New Roman';
+background-color: #e3e3e3;
+
+}
+
+.container {
+background-color: transparent;
+}
+
+.navbar .navbar-collapse{
+justify-content: center
+}
+.navbar-nav, .navbar, .dropdown-menu{
+color: #ebebe3;
+background-color: #b97a95;
+}
+
+
+.nav-item, .dropdown-item{
+color: #ebebe3;
+background-color:#b97a95;
+}
+
+
+
+</style>
+
+<style>
+[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="[data-gjs-type="body"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]"]{font-family:Georgia, "Times New Roman", Times, serif;color:#000000;}#iv7r{min-height:40px;padding-top:8px;padding-bottom:8px;padding:25px 0 8px 0;background-color:#fdfcfa;}#ioui{font-family:Georgia, serif;font-size:50px;color:#000000;text-align:center;font-weight:700;}#iwxa{min-height:auto;padding-top:8px;padding-bottom:8px;padding:0 0 0 0;}#iuwal{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 3px 50px;background-color:#3a2f29;}#i2kk8{min-height:2px;padding-top:8px;padding-bottom:8px;height:2px;padding:0 0 0 0;margin:0 50px 5px 50px;background-color:#3a2f29;}#iu8mo{min-height:300px;padding-top:8px;padding-bottom:8px;background-repeat:no-repeat;background-position:center top;background-attachment:scroll;background-size:cover;background-image:url('./Background_files/morphine_ad.webp');margin:0 50px 0 50px;}#i04f2{min-height:40px;padding-top:8px;padding-bottom:8px;margin:0 50px 0 50px;}.analysis{min-height:40px;padding-top:8px;padding-bottom:8px;padding:8px 0 8px 0;margin:0;line-height:1.8;color:rgba(0, 0, 0, 0.9);font-family:Georgia, serif;font-size:1rem;}.evidence-block{padding-left:22px;margin-bottom:10px;border-left:4px solid rgba(0, 0, 0, 0.35);color:black;position:relative;padding:22px 28px 10px 28px;background:rgba(255, 255, 255, 0.518);}.evidence-block blockquote{margin:0 0 10px;font-style:italic;font-size:1rem;line-height:1.65;padding:0;}.citation{display:block;margin-top:8px;font-size:0.9rem;font-style:normal;color:rgba(0, 0, 0, 0.55);text-align:right;}.evidence-block:last-of-type::after{content:"";}
+
+h3{font-family:Georgia, serif;font-size:50px;color:#000000;margin-top:20px;}h3{font-family:Georgia, serif;font-size:30px;color:#000000;margin-top:20px;font-weight:bold;}h1{font-weight:bold;}.block-pic{display:flex;gap:28px;align-items:flex-start;margin-bottom:10px;}.block-pic .left{flex:1.2;margin-bottom:0;}.block-pic .image-block{flex:0.8;margin:0;}.block-pic .image-block img{width:100%;display:block;border:1px solid rgba(0,0,0,.25);background:#fff;}.block-pic .image-text{margin-top:10px;padding-left:18px;border-left:3px solid rgba(0,0,0,.35);}.image-citation{margin:0 0 6px;font-size:0.85rem;color:rgba(0,0,0,.55);}.tab{display:inline-block;padding:.5em 1em;min-height:50px;min-width:50px;background-color:none;color:#3a2f29;font-family:Georgia, serif;font-size:1.2rem;}.nav-bar{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:center;}.dropdown{display:inline-block;position:relative;}.dropdown-content{display:none;position:absolute;background-color:#f8f5f2;min-width:160px;box-shadow:0px 4px 8px rgba(0,0,0,0.15);text-align:left;z-index:1;}.dropdown-content a{display:block;padding:10px 12px;color:#3a2f29;font-family:Georgia, serif;text-decoration:none;font-size:1rem;}.dropdown-content a:hover{background-color:#e6e0db;}.dropdown:hover .dropdown-content{display:block;}#i1ldkf{min-height:40px;padding-top:8px;padding-bottom:8px;padding:0 0 0 0;margin:0 0 30px 0;}#i31az{text-align:center;}#i3zyk{min-height:40px;padding-top:8px;padding-bottom:8px;text-align:right;margin:0 50px 0 50px;position:relative;}#i8qz9{display:inline-block;padding:10px 50px 10px 50px;min-height:auto;min-width:50px;border:2px solid #eeeeee;background-color:#ffffff;border-radius:20px;font-family:Georgia, serif;color:#4c4c4c;font-size:1rem;}#imntv{margin-top:0;}#i3jdg{width:90%;display:block;margin:0 auto;}#iaqxi{font-style:normal;}#ibilz{font-style:normal;}#ixlm9{font-style:normal;}#icvpz{font-style:normal;}#icl4m{font-style:normal;}#i4ye7{font-style:normal;}#imlia{width:60%;display:block;margin:0 auto;}#izrnj{flex:0.6;}#ifrgt{flex:0.4;display:flex;align-items:center;}#i8qyb{margin:10px 15px;}#idijm{color:#484848;}#ieaqqv{display:flex;align-items:center;flex-direction:column;text-align:center;}#ifgf0l{font-size:smaller;color:rgb(0, 0, 0, 0.55);}
+</style>
+
+    </div>
+
+
+<script>
+    window.onload =()=>{
+        setTimeout(()=>{
+            document.querySelectorAll('.gjs-lory-slides')?.forEach(x=>{
+                x.style = `transition-timing-function: ease; transition-duration: 600ms; transform: translate3d(0,0,0);`;
+                console.log('fixed sliders');
+            }, 0);
+        });
+    };
+</script>
+    
+<style>
+    /* CUSTOM THEME CSS */
+
+    .block {
+    margin-bottom: 20px;
+font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+background-color: #f3e7cf;          /* parchment base */
+color: #1c1a17;
+  }
+  .evidence-block {
+    position: relative;
+    padding: 22px 26px 10px 28px;
+    border-left: 4px solid rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.518);
+    box-shadow: 0 0 10px #725d3e57;
+    margin: 10px 0 10px 0;
+  }
+
+  .left .evidence-block {
+    margin: 0;
+  }
+
+  .image-block .evidence-block {
+    margin:0;
+  }
+
+  .evidence-block blockquote {
+    margin: 0 0 10px;
+    padding: 0;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .citation {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.55);
+    text-align: right;
+  }
+  .analysis {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  h3{
+    font-family:Georgia, serif;
+    font-size:30px;
+    color:#000000;
+    margin-top:20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  h1 {
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .block-pic {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .block-pic .left {
+    flex: 1.2;
+    margin-bottom: 0;
+  }
+  .block-pic .image-block {
+    flex: 0.8;
+    margin: 0;
+  }
+
+  img {
+    width: 50%;
+    display:block;
+    margin: 0 auto;
+  }
+  .block-pic .image-block img {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.25);
+    background: #fff;
+  }
+
+  .image-text{
+    text-align: center; margin-bottom: 30px;
+  }
+
+  .block-pic .image-text {
+    margin-top: 10px;
+    padding-left: 18px;
+    border-left: 3px solid rgba(0,0,0,.35);
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .image-citation {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: rgba(0,0,0,.55);
+  }
+  .image-annotation {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+    /* CUSTOM THEME CSS END */
+    
+</style>
+
+
+
+<veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{appearance:auto}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{appearance:auto;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}@keyframes slide-in{0%{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.gradient-blue{background:radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)}.gradient-green{background:radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)}.gradient-purple{background:radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)}.bg-blue{background-color:#f2f5ff}.bg-purple{background-color:#f7f0ff}.bg-green{background-color:#ebffed}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;right:24px;bottom:24px;width:327px;border-radius:24px;overflow:hidden;box-shadow:0 24px 32px #00000014;animation:slide-in .3s ease-in-out forwards}.lock-screen__content{position:relative;padding:24px 24px 64px}.lock-screen__close{position:absolute;top:16px;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.5}.lock-screen__label{height:26px;width:fit-content;border-radius:50px;background-color:#fff3;padding-inline:16px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;line-height:18px;margin:-8px auto 16px}.lock-screen__title{color:#fff;text-align:center;font-size:20px;line-height:28px;font-weight:600;margin-bottom:8px}.lock-screen__description{color:#f5f6f7;text-align:center;font-size:14px;line-height:20px}.lock-screen__description b{font-weight:600}.lock-screen__card{position:relative;z-index:1;margin-top:-44px;background-color:#fff;border-radius:24px;padding:32px 20px 20px}.lock-screen__inner{margin-bottom:24px}.lock-screen__submit{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;height:40px;width:100%;border-radius:12px;padding-inline:16px;background-color:#f70;color:#fff;margin-bottom:16px}.lock-screen__skip{display:flex;align-items:center;justify-content:center;font-size:14px;line-height:20px;color:#82829c;margin-inline:auto}.price-card{border:1px solid #f2f2fc;background:linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);border-radius:24px;padding:24px 28px}.price-card__label{color:#4a5764;text-align:center;font-size:14px;line-height:20px;text-transform:uppercase;margin-bottom:16px}.price-card__price{display:flex;justify-content:center;align-items:flex-start;column-gap:2px;margin-bottom:12px}.price-card__currency{color:#515478;font-size:18px;line-height:28px}.price-card__number{color:#14142a;text-align:center;font-size:64px;line-height:54px}.price-card__wrap{display:flex;flex-direction:column}.price-card__decimal{color:#515478;font-size:18px;line-height:28px;font-weight:600}.price-card__period{color:#515478;font-size:14px;line-height:20px;margin-top:-6px}.price-card__discount{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.price-card__discount-divider{position:absolute;z-index:0;top:50%;left:0;width:100%;height:1px;background-color:#dbe2f9;transform:translateY(-50%)}.price-card__discount-icon{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}.price-card__discount-text{position:relative;z-index:2;color:#fff;font-size:12px;font-weight:600;line-height:18px}.price-card__features{display:flex;align-items:center;justify-content:center;column-gap:16px}.price-card__feature{color:#222e3a;font-size:14px;line-height:20px;display:flex;align-items:center;gap:6px}.price-card__feature:before{content:"";display:block;width:4px;height:4px;background-color:#20df9e;border-radius:50%;flex-shrink:0}.features-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.features-list__item{display:flex;flex-direction:column;align-items:center;gap:6px}.features-list__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}.features-list__text{color:#293a53;text-align:center;font-size:16px;line-height:24px;letter-spacing:-.1px}</style></template><style></style></veepn-lock-screen></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
